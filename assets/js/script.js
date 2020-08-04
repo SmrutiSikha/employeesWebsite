@@ -9,6 +9,7 @@ $("#username").keyup(function (){   //focusout - changing from one field to anot
 	else
 	{
 		$("#error_username").html(" ");
+		$(".btn").prop('disabled', false);
 	}
 })
 
@@ -23,12 +24,53 @@ $("#pwd").focusout(function(){
 		console.log("1");
 	}
 	else if(!(pwd.match(number)) || !(pwd.match(alphabets)) || !(pwd.match(special_characters))){
-		$("#pwd_strength").html("Prefer having strong password");
+		$("#pwd_strength").html("Prefer having strong password with numbers alphabets and special characters");
 		$(".btn").prop('disabled', false);
-		console.log("2");
 	}
 	else{
 		$("#pwd_strength").html("");
+		$(".btn").prop('disabled', false);
+	}
+})
+
+$("#userphone").focusout(function(){
+	var phone = $("#userphone").val();
+	if(phone.length != 10)
+	{
+		$("#phonecheck").html("phone number wrong");
+	}
+	else
+	{
+		$("#phonecheck").html("");
+	}
+})
+
+$("#designation").focusout(function(){
+	var dsg = $("#designation").val();
+	if(dsg == "Select job type")
+	{
+		$("#dsgcheck").html("click a designation");
+	}
+	else
+	{
+		$("#dsgcheck").html("");
+	}
+})
+
+$("#rpwd").keyup(function(){
+	var pwd = $("#pwd").val();
+	var rpwd = $("#rpwd").val();
+	if(rpwd == ""){
+		$("#checkpwd").html("enter the pwd");
+		$(".btn").prop('disabled', true);
+	}
+	else if(pwd != rpwd){
+		$("#checkpwd").html("password and re-enter password doesn't match");
+		$(".btn").prop('disabled', true);
+	}
+	else
+	{
+		$("#checkpwd").html("");
 		$(".btn").prop('disabled', false);
 	}
 })
@@ -45,10 +87,12 @@ $("#useremail").focusout(function(){
 			if(response.status == "success")
 			{
 				$("#error_email").html(response.message);
+				$(".btn").prop('disabled', true);
 			}
 			else
 			{
 				$("#error_email").html(response.message);
+				$(".btn").prop('disabled', false);
 			}
 		}
 	});

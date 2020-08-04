@@ -14,11 +14,11 @@
 		$query = mysqli_query($conn,$q);
 		if(mysqli_num_rows($query) > 0)
 		{
-			echo(json_encode(array('status' => 'success', 'message' => "email achi")));
+			echo(json_encode(array('status' => 'success', 'message' => "email already registerd.Try a new one")));
 		}
 		else
 		{
-			echo(json_encode(array('status' => 'failure', 'message' => "email nahin")));
+			echo(json_encode(array('status' => 'failure', 'message' => "")));
 		}
 	}
 
