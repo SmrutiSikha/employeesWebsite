@@ -24,7 +24,8 @@ $("#sign_up").click(function()
 						$("#error_email").html("email not present");
 					}
 				}
-		});
+		})
+		return false;
 	})
 
 function check_pwd()
@@ -32,23 +33,19 @@ function check_pwd()
 	var email = $("#useremail").val();
 	var pwd = $("#pwd").val();
 	var datastring = 'email='+email+'&pwd='+pwd;
+	console.log(datastring);
 	$.ajax({
-		url: 'apis/user/login.php',
+		url: './apis/user/login.php',
 		data: datastring,
 		type: 'POST',
 		success: function(response){
 			var response = JSON.parse(response);
-			if(response.status == "success")
-			{
-				console.log("hauchi");
-				alert("hauchi");
-			}
-			else
-			{
-				console.log(response.message);
+			if(response.status == 'success'){
 				alert(response.message);
 			}
-		}
-});
+			else if(response.status == 'failure'){
 
+			}
+		}
+	})
 }
