@@ -19,9 +19,11 @@ $("#sign_up").click(function(){
 			}
 			else
 			{
-				alert(response.message)
+				alert(response.message);
 			}
 		}
 	});
    console.log(datastring);
 })
+
+

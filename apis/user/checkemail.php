@@ -6,7 +6,7 @@
 	$mysql_db = "employees";
 	//connecting to database
 	$conn = mysqli_connect($mysql_host, $mysql_user, $mysql_password, $mysql_db);
-	$email = $_GET['email'];
+	$email = $_POST['email'];
 
 	if(isset($email))
 	{

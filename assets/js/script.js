@@ -81,7 +81,7 @@ $("#useremail").focusout(function(){
 	$.ajax({
 		url: 'apis/user/checkemail.php',
 		data: datastring,
-		type: 'GET',
+		type: 'POST',
 		success: function(response){
 			var response = JSON.parse(response);
 			if(response.status == "success")
@@ -98,3 +98,6 @@ $("#useremail").focusout(function(){
 	});
 
 })
+
+
+
