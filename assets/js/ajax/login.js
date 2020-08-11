@@ -35,7 +35,7 @@ function check_pwd()
 	var datastring = 'email='+email+'&pwd='+pwd;
 	console.log(datastring);
 	$.ajax({
-		url: './apis/user/login.php',
+		url: 'apis/user/login.php',
 		data: datastring,
 		type: 'POST',
 		success: function(response){
@@ -47,5 +47,5 @@ function check_pwd()
 
 			}
 		}
-	})
+	});
 }
