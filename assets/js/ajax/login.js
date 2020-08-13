@@ -42,6 +42,7 @@ function check_pwd()
 			var response = JSON.parse(response);
 			if(response.status == 'success'){
 				alert(response.message);
+				window.location = "profile.html";
 			}
 			else if(response.status == 'failure'){
 

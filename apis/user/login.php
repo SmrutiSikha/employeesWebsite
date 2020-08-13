@@ -1,4 +1,6 @@
 <?php
+
+    session_start();
 	
 	$mysql_host = "localhost";
 	$mysql_user = "root";
@@ -19,17 +21,20 @@
 			$db_pwd = $row['pwd'];
 			if($db_pwd == $pwd)
 			{
+			$_SESSION["user_id"] = $row["id"];
+			$_SESSION["logged_in"] = 1;
+			$_SESSION["email"] = $row["email"];
 			echo(json_encode(array('status' => 'success', 'message' => "correct password")));
 			}
 		}
 		else
 		{
-			echo(json_encode(array('status' => 'failure', 'message' => "incorrect password and email")));
+			echo(json_encode(array('status' => 'failure', 'message' => "incorrect password and email1")));
 		}
     }
     else
     {
-    	echo(json_encode(array('status' => 'failure', 'message' => "incorrect password and email")));
+    	echo(json_encode(array('status' => 'failure', 'message' => "incorrect password and email2")));
 
     }
 
